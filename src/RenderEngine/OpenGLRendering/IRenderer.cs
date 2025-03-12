@@ -10,9 +10,5 @@ namespace RenderEngine.OpenGLRendering;
 
 internal interface IRenderer
 {
-    ICamera MainCamera { set; }
-
-
-
-    void Render(IEnumerable<IRenderObject> renderObjects);
+    void Render(ICamera camera, IEnumerable<IRenderObject> renderObjects);
 }

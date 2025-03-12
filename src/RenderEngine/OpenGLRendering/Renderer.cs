@@ -10,14 +10,14 @@ namespace RenderEngine.OpenGLRendering;
 
 internal class Renderer : IRenderer
 {
-    public ICamera? MainCamera { get; set; }
-
-
-
-    public void Render(IEnumerable<IRenderObject> renderObjects)
+    public void Render(ICamera camera, IEnumerable<IRenderObject> renderObjects)
     {
         foreach (IRenderObject renderObject in renderObjects)
         {
+            if (!renderObject.Bind()) continue;
+
+            renderObject.Material.ShaderProgram.SetCameraUniforms(camera);
+
             renderObject.Render();
         }
     }
