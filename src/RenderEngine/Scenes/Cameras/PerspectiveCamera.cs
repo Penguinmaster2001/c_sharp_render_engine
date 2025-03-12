@@ -3,7 +3,7 @@ using OpenTK.Mathematics;
 
 
 
-namespace RenderEngine.Scene.Cameras;
+namespace RenderEngine.Scenes.Cameras;
 
 
 
