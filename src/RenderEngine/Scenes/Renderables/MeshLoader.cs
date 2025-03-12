@@ -11,6 +11,8 @@ internal static class MeshLoader
 {
     /// <summary>
     /// Very basic Wavefront .obj file parser
+    /// 
+    /// It doesn't work for now
     /// </summary>
     public static IMesh LoadMesh(string filePath)
     {
@@ -44,7 +46,7 @@ internal static class MeshLoader
 
         void AddVertex(string line)
         {
-            List<float> components = line.Split(' ')[1..3].Select(float.Parse).ToList();
+            List<float> components = line.Split(' ')[1..4].Select(float.Parse).ToList();
 
             vertices.Add(new(components[0], components[1], components[2]));
         }
@@ -52,7 +54,7 @@ internal static class MeshLoader
 
         void AddUV(string line)
         {
-            List<float> components = line.Split(' ')[1..2].Select(float.Parse).ToList();
+            List<float> components = line.Split(' ')[1..3].Select(float.Parse).ToList();
 
             uvs.Add(new(components[0], components[1]));
         }
