@@ -8,7 +8,7 @@ namespace RenderEngine.Scenes;
 
 
 
-internal interface ISceneObject
+public interface ISceneObject
 {
     Matrix4 Transform { get; }
 

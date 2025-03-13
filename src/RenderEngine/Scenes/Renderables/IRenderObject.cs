@@ -7,7 +7,7 @@ namespace RenderEngine.Scenes.Renderables;
 
 
 
-internal interface IRenderObject : ISceneObject
+public interface IRenderObject : ISceneObject
 {
     IMaterial Material { get; }
 

@@ -7,7 +7,7 @@ namespace RenderEngine.Scenes.Materials;
 
 
 
-internal interface IMaterial
+public interface IMaterial
 {
     IShaderProgram ShaderProgram { get; }
 

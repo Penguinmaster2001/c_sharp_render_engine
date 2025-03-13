@@ -11,7 +11,7 @@ namespace RenderEngine.Scenes.Cameras;
 /// <summary>
 /// Manages a view matrix
 /// </summary>
-internal interface ICamera
+public interface ICamera
 {
     Matrix4 ViewMatrix { get; }
 

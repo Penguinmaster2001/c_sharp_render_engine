@@ -7,7 +7,7 @@ namespace RenderEngine.Scenes.Renderables;
 
 
 
-internal interface IMesh
+public interface IMesh
 {
     List<Vector3> Verts { get; }
     List<Vector2> UVs { get; }

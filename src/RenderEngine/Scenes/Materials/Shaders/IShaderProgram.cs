@@ -8,7 +8,7 @@ namespace RenderEngine.Scenes.Materials.Shaders;
 
 
 
-internal interface IShaderProgram
+public interface IShaderProgram
 {
     int ID { get; }
     bool Valid { get; }

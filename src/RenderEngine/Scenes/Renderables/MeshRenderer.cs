@@ -11,7 +11,7 @@ namespace RenderEngine.Scenes.Renderables;
 
 
 
-internal class MeshRenderer : SceneObject, IRenderObject
+public class MeshRenderer : SceneObject, IRenderObject
 {
     public IMesh Mesh { get; }
     public IMaterial Material { get; }

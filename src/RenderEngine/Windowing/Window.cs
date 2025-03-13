@@ -14,7 +14,7 @@ namespace RenderEngine.Windowing;
 
 
 
-internal class Window : GameWindow
+public class Window : GameWindow
 {
     internal (int Width, int Height) WindowSize { get; private set; }
 

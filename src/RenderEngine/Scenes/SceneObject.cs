@@ -9,7 +9,7 @@ namespace RenderEngine.Scenes;
 
 
 
-internal abstract class SceneObject : ISceneObject
+public abstract class SceneObject : ISceneObject
 {
     public Matrix4 Transform { get; protected set; }
 

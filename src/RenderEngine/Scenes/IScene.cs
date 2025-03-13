@@ -7,7 +7,7 @@ namespace RenderEngine.Scenes;
 
 
 
-internal interface IScene
+public interface IScene
 {
     bool AddToScene(ISceneObject sceneObject);
 

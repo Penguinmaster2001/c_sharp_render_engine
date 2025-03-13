@@ -3,4 +3,4 @@ namespace RenderEngine.Scenes.Cameras;
 
 
 
-internal interface ISceneCamera : ICamera, ISceneObject;
+public interface ISceneCamera : ICamera, ISceneObject;
