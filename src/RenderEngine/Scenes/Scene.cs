@@ -14,7 +14,7 @@ internal class Scene : IScene
     private readonly List<ISceneObject> _sceneObjects = [];
     private readonly List<IRenderObject> _renderObjects = [];
     private readonly Renderer _renderer;
-    public ICamera? MainCamera { get; set; }
+    public ISceneCamera? MainCamera { get; set; }
 
 
 
@@ -43,5 +43,15 @@ internal class Scene : IScene
         if (MainCamera is null) return;
 
         _renderer.Render(MainCamera, _renderObjects);
+    }
+
+
+
+    public void Delete()
+    {
+        foreach (IRenderObject renderObject in _renderObjects)
+        {
+            renderObject.Delete();
+        }
     }
 }
