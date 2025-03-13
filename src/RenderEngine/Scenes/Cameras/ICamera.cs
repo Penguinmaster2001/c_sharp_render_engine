@@ -14,4 +14,7 @@ namespace RenderEngine.Scenes.Cameras;
 internal interface ICamera
 {
     Matrix4 ViewMatrix { get; }
+
+    int ViewWidth { get; set; }
+    int ViewHeight { get; set; }
 }

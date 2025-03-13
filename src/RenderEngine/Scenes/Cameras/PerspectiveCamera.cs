@@ -10,7 +10,7 @@ namespace RenderEngine.Scenes.Cameras;
 /// <summary>
 /// Basic perspective camera class
 /// </summary>
-internal class PerspectiveCamera(float fov, float aspectRatio, float clipNear, float clipFar) : ICamera
+internal class PerspectiveCamera(float fov, int viewWidth, int viewHeight, float clipNear, float clipFar) : SceneObject, ISceneCamera
 {
     public Matrix4 ViewMatrix
     {
@@ -40,24 +40,11 @@ internal class PerspectiveCamera(float fov, float aspectRatio, float clipNear, f
     protected float _fov = fov;
 
 
-    public float AspectRatio
-    {
-        get => _aspectRatio;
-
-        set
-        {
-            _aspectRatio = value;
-            _modified = true;
-        }
-    }
-    protected float _aspectRatio = aspectRatio;
-
-
     public float ClipNear
     {
         get => _clipNear;
 
-        private set
+        set
         {
             _clipNear = value;
             _modified = true;
@@ -70,7 +57,7 @@ internal class PerspectiveCamera(float fov, float aspectRatio, float clipNear, f
     {
         get => _clipFar;
 
-        private set
+        set
         {
             _clipFar = value;
             _modified = true;
@@ -78,18 +65,37 @@ internal class PerspectiveCamera(float fov, float aspectRatio, float clipNear, f
     }
     protected float _clipFar = clipFar;
 
+    public int ViewWidth
+    {
+        get => _viewWidth;
 
-    /// <summary>
-    /// Set to true when modified so call to <see cref="UpdateViewMatrix"/>
-    /// only happens once per get <see cref="ViewMatrix"/>
-    /// </summary>
-    protected bool _modified = true;
+        set
+        {
+            _viewWidth = value;
+            _modified = true;
+        }
+    }
+    private int _viewWidth = viewWidth;
+
+
+    public int ViewHeight
+    {
+        get => _viewHeight;
+
+        set
+        {
+            _viewHeight = value;
+            _modified = true;
+        }
+    }
+    private int _viewHeight = viewHeight;
 
 
 
     protected void UpdateViewMatrix()
     {
-        _viewMatrix = Matrix4.CreatePerspectiveFieldOfView(_fov, _aspectRatio, ClipNear, ClipFar);
+        _viewMatrix = Matrix4.CreatePerspectiveFieldOfView(_fov, ViewWidth / ViewHeight, ClipNear, ClipFar)
+            * Matrix4.LookAt(Position, Position + Vector3.UnitZ, Vector3.UnitY);
 
         _modified = false;
     }
