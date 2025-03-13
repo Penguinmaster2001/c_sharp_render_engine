@@ -11,10 +11,9 @@ namespace RenderEngine.Scenes.Renderables;
 
 
 
-internal class MeshRenderer : IRenderObject
+internal class MeshRenderer : SceneObject, IRenderObject
 {
     public IMesh Mesh { get; }
-    public Matrix4 Transform { get; }
     public IMaterial Material { get; }
 
     private VAO? _vao;
@@ -71,6 +70,9 @@ internal class MeshRenderer : IRenderObject
 
 
         Material.Bind();
+
+        Material.ShaderProgram.SetUniformMatrix4("model", Transform);
+
         _vao.Bind();
         _ibo.Bind();
 
@@ -113,12 +115,5 @@ internal class MeshRenderer : IRenderObject
         _vertexVbo?.Delete();
         _uvVbo?.Delete();
         _vao?.Delete();
-    }
-
-
-
-    public void Update(double timeDelta)
-    {
-        
     }
 }

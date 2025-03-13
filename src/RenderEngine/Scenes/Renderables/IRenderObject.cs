@@ -15,4 +15,6 @@ internal interface IRenderObject : ISceneObject
 
     bool Bind();
     void UnBind();
+
+    void Delete();
 }
