@@ -1,5 +1,6 @@
 
 using OpenTK.Mathematics;
+using RenderEngine.Windowing;
 
 
 
@@ -12,5 +13,5 @@ internal interface ISceneObject
     Matrix4 Transform { get; }
 
 
-    void Update(double timeDelta);
+    void Update(FrameState frameState);
 }
