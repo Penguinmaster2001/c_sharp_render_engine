@@ -56,7 +56,7 @@ internal class Window : GameWindow
 
         if (_cameraIndex < 0)
         {
-            _cameraIndex = 1;
+            _cameraIndex = 0;
             ChooseCamera(_cameraIndex);
         }
     }
@@ -65,7 +65,7 @@ internal class Window : GameWindow
 
     public void ChooseCamera(int camera)
     {
-        if (camera < 0 || Cameras.Count < camera) return;
+        if (camera < 0 || Cameras.Count <= camera) return;
 
         _cameraIndex = camera;
 
