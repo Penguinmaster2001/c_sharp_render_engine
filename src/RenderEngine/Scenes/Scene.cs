@@ -2,6 +2,7 @@
 using RenderEngine.Scenes.Cameras;
 using RenderEngine.Scenes.Renderables;
 using RenderEngine.OpenGLRendering;
+using RenderEngine.Windowing;
 
 
 
@@ -34,6 +35,16 @@ internal class Scene : IScene
         }
 
         return true;
+    }
+
+
+
+    public void Update(FrameState frameState)
+    {
+        foreach (ISceneObject sceneObject in _sceneObjects)
+        {
+            sceneObject.Update(frameState);
+        }
     }
 
 

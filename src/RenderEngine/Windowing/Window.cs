@@ -126,6 +126,9 @@ public class Window : GameWindow
         {
             CursorState = CursorState == CursorState.Grabbed ? CursorState.Normal : CursorState.Grabbed;
         }
+
+
+        Scene.Update(frameState);
     }
 
 

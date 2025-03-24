@@ -1,5 +1,6 @@
 
 using RenderEngine.Scenes.Cameras;
+using RenderEngine.Windowing;
 
 
 
@@ -16,6 +17,8 @@ public interface IScene
 
 
     void Render();
+
+    void Update(FrameState frameState);
 
     void Delete();
 }
