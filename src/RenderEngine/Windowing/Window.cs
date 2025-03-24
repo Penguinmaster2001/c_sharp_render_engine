@@ -48,7 +48,7 @@ public class Window : GameWindow
 
 
 
-    public void AddCamera(float fov, float clipNear, float clipFar)
+    public void AddCamera(float fov, float clipNear, float clipFar, bool swapTo = true)
     {
         PerspectiveCamera camera = new(fov, WindowSize.Width, WindowSize.Height, clipNear, clipFar);
 
@@ -56,8 +56,11 @@ public class Window : GameWindow
 
         if (_cameraIndex < 0)
         {
-            _cameraIndex = 0;
-            ChooseCamera(_cameraIndex);
+            ChooseCamera(0);
+        }
+        else if (swapTo)
+        {
+            ChooseCamera(Cameras.Count - 1);
         }
     }
 
