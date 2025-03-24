@@ -11,6 +11,7 @@ namespace RenderEngine.Scenes;
 
 public abstract class SceneObject : ISceneObject
 {
+    public IScene? Scene { get; protected set; }
     public Matrix4 Transform { get; protected set; }
 
     public Vector3 Position
@@ -76,5 +77,12 @@ public abstract class SceneObject : ISceneObject
     public virtual void Update(FrameState frameState)
     {
         UpdateTransform();
+    }
+
+
+
+    public virtual void AddToScene(IScene scene)
+    {
+        Scene = scene;
     }
 }

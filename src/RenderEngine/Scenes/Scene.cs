@@ -34,6 +34,8 @@ internal class Scene : IScene
             _renderObjects.Add(renderObject);
         }
 
+        sceneObject.AddToScene(this);
+
         return true;
     }
 
