@@ -25,7 +25,7 @@ public abstract class SceneObject : ISceneObject
         }
 
     }
-    private Vector3 _position;
+    private Vector3 _position = Vector3.Zero;
 
 
     public Vector3 Scale
@@ -39,7 +39,7 @@ public abstract class SceneObject : ISceneObject
         }
 
     }
-    private Vector3 _scale;
+    private Vector3 _scale = Vector3.One;
 
 
     public Quaternion Rotation
@@ -52,7 +52,7 @@ public abstract class SceneObject : ISceneObject
             _modified = true;
         }
     }
-    protected Quaternion _rotation;
+    protected Quaternion _rotation = Quaternion.Identity;
 
 
     protected bool _modified = true;

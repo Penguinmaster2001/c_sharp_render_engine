@@ -7,7 +7,7 @@ namespace RenderEngine.Scenes.Materials.Shaders;
 
 
 
-internal class ShaderLoader : IShaderLoader
+public class ShaderLoader : IShaderLoader
 {
     public IShaderProgram LoadShader(string shaderPath)
     {

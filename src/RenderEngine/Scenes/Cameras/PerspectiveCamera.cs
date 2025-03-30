@@ -94,8 +94,8 @@ internal class PerspectiveCamera(float fov, int viewWidth, int viewHeight, float
 
     protected void UpdateViewMatrix()
     {
-        _viewMatrix = Matrix4.CreatePerspectiveFieldOfView(_fov, ViewWidth / ViewHeight, ClipNear, ClipFar)
-            * Matrix4.LookAt(Position, Position + Vector3.UnitZ, Vector3.UnitY);
+        _viewMatrix = Matrix4.LookAt(Position, Position + (Rotation * Vector3.UnitZ), Rotation * Vector3.UnitY)
+            * Matrix4.CreatePerspectiveFieldOfView(_fov, ViewWidth / ViewHeight, ClipNear, ClipFar);
 
         _modified = false;
     }
